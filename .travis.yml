@@ -1,11 +1,12 @@
 language: cpp
 
-os:
-  - windows
-  - osx
-
 install:
   - git clone https://chromium.googlesource.com/external/gyp
 
-script:
-  - ./gyp/gyp --depth ./ ./gai++/gai.gyp
+matrix:
+  include:
+  - os: osx
+    osx_image: xcode8.3
+    script:
+    - ./gyp/gyp --depth ./ ./gai++/gai.gyp
+    - xcodebuild
