@@ -31,7 +31,7 @@
           'GCC_OPTIMIZATION_LEVEL': '0'
         },
         'msbuild_settings': {
-          'ClCompile': { 
+          'ClCompile': {
             'Optimization': 'Disabled',
             'RuntimeLibrary': 'MultiThreadedDebugDLL',
           }
@@ -46,7 +46,7 @@
           'GCC_OPTIMIZATION_LEVEL': 's'
         },
         'msbuild_settings': {
-          'ClCompile': { 
+          'ClCompile': {
             'Optimization': 'MaxSpeed',
             'RuntimeLibrary': 'MultiThreadedDLL',
           }
@@ -151,7 +151,7 @@
           ],
           'xcode_settings': {
             'LIBRARY_SEARCH_PATHS': [
-              '/usr/local/lib'
+              # '/usr/local/lib'
             ],
             'FRAMEWORK_SEARCH_PATHS': [
               '/Library/Frameworks'
@@ -338,7 +338,7 @@
                     'ws2_32.lib',
                     'Rpcrt4.lib',
                   ],
-                }, 
+                },
               },
             }, # end of Debug configuration
             'Release': {
@@ -357,7 +357,7 @@
                     'ws2_32.lib',
                     'Rpcrt4.lib',
                   ],
-                }, 
+                },
               },
             } # end of Release configuration
           },

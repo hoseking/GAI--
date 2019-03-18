@@ -1,12 +1,21 @@
 language: cpp
 
-install:
-  - git clone https://chromium.googlesource.com/external/gyp
-
 matrix:
   include:
   - os: osx
     osx_image: xcode8.3
-    script:
-    - ./gyp/gyp --depth ./ ./gai++/gai.gyp
-    - xcodebuild
+    compiler: clang++
+    env: CONFIGURATION=Release
+  - os: osx
+    osx_image: xcode8.3
+    compiler: clang++
+    env: CONFIGURATION=Release_x64
+
+before_script:
+  - git clone https://chromium.googlesource.com/external/gyp
+
+script:
+  - echo $CONFIGURATION
+  - ./gyp/gyp --depth . gai++/gai.gyp
+  - xcodebuild -project gai++/gai.xcodeproj -target gai++test -configuration $CONFIGURATION
+  - ./bin/$CONFIGURATION/gai++test.app/Contents/MacOS/gai++test
